@@ -229,6 +229,7 @@ class _TimePickerSpinnerState extends State<TimePickerSpinner> {
     List<Widget> contents = [
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
             width: _getItemWidth(),
@@ -246,12 +247,17 @@ class _TimePickerSpinnerState extends State<TimePickerSpinner> {
               () => isHourScrolling = false,
             ),
           ),
-          Text(' H', style: TextStyle(fontSize: 18)),
+          Text(' Horas', style: TextStyle(
+            fontSize: widget.normalTextStyle != null
+            ? widget.normalTextStyle!.fontSize
+            : defaultNormalTextStyle.fontSize)
+          ),
         ],
       ),
       spacer(),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
             width: _getItemWidth(),
@@ -269,7 +275,11 @@ class _TimePickerSpinnerState extends State<TimePickerSpinner> {
               () => isMinuteScrolling = false,
             ),
           ),
-          Text(' Min', style: TextStyle(fontSize: 18)),
+          Text(' Minutos', style: TextStyle(
+            fontSize: widget.normalTextStyle != null
+            ? widget.normalTextStyle!.fontSize
+            : defaultNormalTextStyle.fontSize)
+          ),
         ],
       ),
     ];
