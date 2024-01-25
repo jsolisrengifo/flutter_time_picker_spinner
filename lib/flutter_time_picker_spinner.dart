@@ -227,38 +227,50 @@ class _TimePickerSpinnerState extends State<TimePickerSpinner> {
   Widget build(BuildContext context) {
     // print(minuteController.offset);
     List<Widget> contents = [
-      SizedBox(
-        width: _getItemWidth(),
-        height: _getItemHeight()! * 3,
-        child: spinner(
-          hourController,
-          _getHourCount(),
-          currentSelectedHourIndex,
-          isHourScrolling,
-          1,
-          (index) {
-            currentSelectedHourIndex = index;
-            isHourScrolling = true;
-          },
-          () => isHourScrolling = false,
-        ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: _getItemWidth(),
+            height: _getItemHeight()! * 3,
+            child: spinner(
+              hourController,
+              _getHourCount(),
+              currentSelectedHourIndex,
+              isHourScrolling,
+              1,
+              (index) {
+                currentSelectedHourIndex = index;
+                isHourScrolling = true;
+              },
+              () => isHourScrolling = false,
+            ),
+          ),
+          Text(' H', style: TextStyle(fontSize: 18)),
+        ],
       ),
       spacer(),
-      SizedBox(
-        width: _getItemWidth(),
-        height: _getItemHeight()! * 3,
-        child: spinner(
-          minuteController,
-          _getMinuteCount(),
-          currentSelectedMinuteIndex,
-          isMinuteScrolling,
-          widget.minutesInterval,
-          (index) {
-            currentSelectedMinuteIndex = index;
-            isMinuteScrolling = true;
-          },
-          () => isMinuteScrolling = false,
-        ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: _getItemWidth(),
+            height: _getItemHeight()! * 3,
+            child: spinner(
+              minuteController,
+              _getMinuteCount(),
+              currentSelectedMinuteIndex,
+              isMinuteScrolling,
+              widget.minutesInterval,
+              (index) {
+                currentSelectedMinuteIndex = index;
+                isMinuteScrolling = true;
+              },
+              () => isMinuteScrolling = false,
+            ),
+          ),
+          Text(' Min', style: TextStyle(fontSize: 18)),
+        ],
       ),
     ];
 
